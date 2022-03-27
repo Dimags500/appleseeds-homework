@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.1 Buttons</title>
+
+    <style>
+        body,
+        html,
+        * {
+            background-color: rgb(88, 88, 88);
+            color: aliceblue;
+        }
+
+        .container h3 {
+
+            text-align: center;
+        }
+
+        .container ul {
+            margin: 30px;
+            text-align: center;
+
+
+        }
+
+        .container ul li {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .container ul li button {
+            margin-left: 25px;
+        }
+
+        .btn-big {
+            height: 35px;
+            width: 100px;
+        }
+
+        .btn-medium {
+            height: 30px;
+            width: 80px;
+        }
+
+        .btn-small {
+            height: 25px;
+            width: 60px;
+            font-size: 10px;
+        }
+
+        #btn1 {
+            background-color: green;
+            border: none;
+        }
+
+        #btn1:hover {
+            background-color: rgb(35, 105, 35);
+
+        }
+
+        #btn2 {
+            background-color: red;
+            border: none;
+        }
+
+        #btn2:hover {
+            background-color: rgb(167, 63, 63);
+
+        }
+
+        #btn3 {
+            background-color: blue;
+            border: none;
+        }
+
+        #btn3:hover {
+            background-color: rgb(41, 41, 99);
+        }
+
+        #btn4 {
+            background-color: orange;
+            border: none;
+            border-radius: 15px;
+        }
+
+        #btn4:hover {
+            background-color: rgb(136, 95, 18);
+        }
+
+        #btn5 {
+            background-color: rgb(218, 218, 87);
+            border: none;
+            border-radius: 15px;
+        }
+
+        #btn5:hover {
+            background-color: rgb(104, 104, 7);
+        }
+
+        #btn6 {
+            background-color: rgb(185, 166, 166);
+            border: none;
+            border-radius: 15px;
+        }
+
+        #btn6:hover {
+            background-color: gainsboro;
+        }
+
+        #btn7 {
+            border: 2.5px solid green;
+        }
+
+        #btn7:hover {
+            background-color: green;
+        }
+
+        #btn8 {
+            border: 2.5px solid red;
+
+        }
+
+        #btn8:hover {
+            background-color: red;
+        }
+
+
+        #btn9 {
+            border: 2.5px solid blue;
+        }
+
+        #btn9:hover {
+            background-color: blue;
+        }
+
+
+        #btn10 {
+            border: 2.5px solid orange;
+            border-radius: 15px;
+
+        }
+
+        #btn10:hover {
+            background-color: orange;
+        }
+
+        #btn11 {
+            border: 2.5px solid yellow;
+            border-radius: 15px;
+        }
+
+        #btn11:hover {
+            background-color: yellow;
+        }
+
+        #btn12 {
+            border: 2.5px solid gray;
+            border-radius: 15px;
+        }
+
+        #btn12:hover {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <section class="container">
+            <h3>Flat</h3>
+            <ul>
+                <li><Button class="btn-big " id="btn1">Register</Button></li>
+                <li><Button class="btn-medium" id="btn2">Clear</Button></li>
+                <li><Button class="btn-small" id="btn3">Submit</Button></li>
+
+            </ul>
+        </section>
+
+        <section class="container">
+            <h3>Round</h3>
+            <ul>
+                <li><Button class="btn-big " id="btn4">Register</Button></li>
+                <li><Button class="btn-medium" id="btn5">Clear</Button></li>
+                <li><Button class="btn-small " id="btn6">Submit</Button></li>
+
+            </ul>
+        </section>
+
+        <section class="container">
+            <h3>Flat Ghost</h3>
+            <ul>
+                <li><Button class="btn-big " id="btn7">Register</Button></li>
+                <li><Button class="btn-medium" id="btn8">Clear</Button></li>
+                <li><Button class="btn-small " id="btn9">Submit</Button></li>
+
+            </ul>
+        </section>
+        <section class="container">
+            <h3>Rounded Ghost</h3>
+            <ul>
+                <li><Button class="btn-big " id="btn10">Register</Button></li>
+                <li><Button class="btn-medium" id="btn11">Clear</Button></li>
+                <li><Button class="btn-small " id="btn12">Submit</Button></li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+
+</html>
