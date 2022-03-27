@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.1 Positioning</title>
+
+    <style>
+        body {
+            background-color: deeppink;
+        }
+
+        p {
+            border: 1px solid olive;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        section {
+            background-color: beige;
+        }
+
+        #outer {
+            width: 100px;
+            height: 100px;
+            background: darkcyan;
+            margin: 50px;
+
+            position: relative;
+        }
+
+        #inner {
+            width: 50px;
+            height: 50px;
+            background: lightgreen;
+            position: absolute;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+    <section>
+
+        <p> If an absolute positioned element has no positioned ancestors, it uses the document body, and moves along
+            with
+            page scrolling. </p>
+        <p>The solution is to add " position: relative; " property to #outer , that way #inner div will use #outer div
+            as a
+            parent
+        </p>
+    </section>
+
+
+
+</body>
+
+</html>
