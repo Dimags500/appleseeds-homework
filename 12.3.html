@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Media queries-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: antiquewhite;
+        }
+
+        .container {
+            max-width: 60%;
+            min-width: 340px;
+            max-width: 960px;
+
+            margin: 50px auto 50px auto;
+            border: 2px solid black;
+            padding-left: 100px;
+            padding-right: 100px;
+            background-color: azure;
+
+        }
+
+        header,
+        main,
+        aside,
+        footer {
+            margin: 5px;
+
+        }
+
+        header div {
+            background-color: orange;
+            text-align: center;
+            padding: 10px;
+
+        }
+
+        aside div {
+            background-color: green;
+            float: left;
+            text-align: left;
+            height: 200px;
+            width: 32%;
+
+        }
+
+
+        main div {
+            background-color: blueviolet;
+            float: right;
+            text-align: right;
+            height: 200px;
+
+            width: 67%;
+
+
+
+        }
+
+        footer div {
+            background-color: rgb(58, 138, 170);
+            text-align: center;
+            color: aliceblue;
+            padding: 10px;
+
+        }
+
+        .clr {
+            clear: both;
+        }
+
+
+
+        @media screen and (max-width:500px) {
+
+
+
+            body {
+                background-color: crimson;
+            }
+
+            aside {
+                display: none;
+
+            }
+
+            main div {
+                text-align: center;
+                padding-top: 70px;
+                width: 100%;
+            }
+
+
+
+            .container {
+
+
+                max-width: 100%;
+                min-width: 200px;
+                max-width: 960px;
+
+                margin: 50px auto 50px auto;
+                border: 2px solid black;
+                padding-left: 10px;
+                padding-right: 10px;
+                background-color: azure;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div>Header</div>
+        </header>
+        <aside>
+            <div>aside</div>
+        </aside>
+        <main>
+            <div>main</div>
+        </main>
+        <div class="clr"></div>
+        <footer>
+            <div>footer</div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>
