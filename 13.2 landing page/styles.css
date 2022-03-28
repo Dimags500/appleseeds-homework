@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  color: aliceblue;
+}
+html {
+  min-width: 240px;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+/*Navrbar*/
+
+#navbar {
+  position: fixed;
+  width: 100%;
+
+  overflow: auto;
+
+  padding: 12px;
+  font-size: 16px;
+  border-bottom: 2px solid rgb(196, 50, 50);
+  font-family: "Exo 2", sans-serif;
+}
+
+#logo {
+  float: left;
+}
+
+#navbar ul {
+  float: right;
+  margin-right: 10vh;
+}
+
+#navbar ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+/* middle section image*/
+
+#image {
+  width: auto;
+  height: 60vh;
+  background: url("./img/wall.gif") no-repeat center center/cover;
+  /* background-position: center;
+  background-repeat: space; */
+}
+
+.card {
+  position: absolute;
+  top: 35vh;
+  left: 12vh;
+  right: 12vh;
+
+  text-align: center;
+}
+
+.card button {
+  background-color: black;
+  margin-top: 2vh;
+  width: 12vw;
+}
+
+#boxes {
+  text-align: center;
+  margin: 15px;
+}
+
+.box {
+  display: inline-block;
+
+  width: calc(100% / 3.3);
+  margin: auto;
+}
+
+.box img {
+  margin: 20px;
+  height: auto;
+  width: calc(100% / 3.3);
+}
+
+@media (max-width: 500px) {
+  #boxes {
+    margin-top: 15vh;
+  }
+  .box {
+    display: block;
+
+    width: 100%;
+    margin: 5px;
+  }
+}
