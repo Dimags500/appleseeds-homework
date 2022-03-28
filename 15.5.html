@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flex Navbar</title>
+
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+
+        body {
+            background-color: palegoldenrod;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: azure;
+        }
+
+        nav {
+            background-color: aquamarine;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #logo {
+            flex-direction: row;
+            align-self: center;
+        }
+
+        nav ul {
+            display: inline-flex;
+            list-style: none;
+
+
+        }
+
+        nav ul li {
+
+            width: 60px;
+
+            /* margin-left: 12px; */
+
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div id="logo"><a href="">To moon</a></div>
+            <ul>
+                <li><a href="">Rock</a></li>
+                <li><a href="">Nick</a></li>
+                <li><a href="">Tick</a></li>
+                <li><a href="">Rick</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+
+</html>
