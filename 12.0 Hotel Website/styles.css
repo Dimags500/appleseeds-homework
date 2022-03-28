@@ -1,0 +1,241 @@
+/*Reste*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Main styling*/
+html,
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.7em;
+}
+
+a {
+  color: gray;
+  text-decoration: none;
+}
+
+.py-1 {
+  padding: 10px 0;
+}
+.py-2 {
+  padding: 20px 0;
+}
+.py-3 {
+  padding: 30px 0;
+}
+
+/*navbar*/
+
+nav {
+  background-color: black;
+  color: aliceblue;
+  overflow: auto;
+}
+
+nav a {
+  color: aliceblue;
+}
+.logo {
+  float: left;
+  margin: 20px;
+}
+
+nav ul {
+  float: right;
+  margin: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+nav ul li a {
+  color: aliceblue;
+}
+nav ul li a:hover,
+nav ul li a.current {
+  background-color: rgb(66, 30, 30);
+}
+
+.current {
+  color: orange;
+}
+
+.container {
+  overflow: auto;
+}
+
+#section-1 {
+  position: relative;
+}
+
+#section-1 {
+  background: url(./img/showcase.jpg) no-repeat center center/cover;
+  height: 300px;
+}
+
+#section-1-content {
+  color: aliceblue;
+  text-align: center;
+  padding-top: 100px;
+}
+
+#section-1-content h1 {
+  font-size: 30px;
+}
+#section-1-content p {
+  margin-top: 20px;
+}
+
+.btn {
+  margin-top: 15px;
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: antiquewhite;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: antiquewhite;
+  color: black;
+}
+
+#section-2-img {
+  width: 45%;
+  float: left;
+}
+
+#section-2 {
+  display: inline-block;
+  background-color: black;
+  color: aliceblue;
+}
+
+#section-2-text {
+  text-align: center;
+  font-size: 12px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.box {
+  float: left;
+  width: calc(100% / 3);
+  text-align: center;
+  background-color: aliceblue;
+}
+
+.box h3 {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.box i {
+  margin-top: 20ps;
+}
+
+#box2 {
+  background-color: orange;
+}
+
+.clear {
+  clear: both;
+}
+
+/*About*/
+#info {
+  background-color: antiquewhite;
+}
+#info h3 {
+  margin-bottom: 20px;
+}
+#info .box-right {
+  float: right;
+  width: 50%;
+  min-height: 100%;
+}
+#info .box-right img {
+  display: block;
+  margin: auto;
+  width: 70%;
+  border-radius: 50%;
+}
+
+#info .box-left {
+  float: left;
+  width: 50%;
+  min-height: 100%;
+}
+
+#info-2 {
+  height: 600px;
+  background: url("./img/test-bg.jpg") no-repeat center center/cover;
+  padding-top: 100px;
+}
+
+.fans-talk {
+  padding: 40px;
+  margin: 25px;
+
+  opacity: 0.8;
+  background-color: antiquewhite;
+  border-radius: 3px;
+}
+
+.fans-talk h2 {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.fans-talk img {
+  width: 100px;
+  float: left;
+  border-radius: 50%;
+  padding: 1%;
+}
+
+/*Contact*/
+
+.l-heading {
+  margin-bottom: 20px;
+}
+
+#contact-form .form-group {
+  margin-bottom: 20px;
+}
+#contact-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: aqua;
+}
+
+#contact-info {
+  background-color: aliceblue;
+}
+
+/*Footer*/
+#main-footer {
+  text-align: center;
+}
+
+#main-footer p {
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+}
