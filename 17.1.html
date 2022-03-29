@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> before and after pseudo selectors</title>
+
+    <style>
+        a {
+            text-decoration: none;
+            color: green;
+        }
+
+
+        p::before {
+            content: '*** this is before ';
+            background-color: antiquewhite;
+        }
+
+        a:after {
+            content: attr(title) "(www.rock.com) ";
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <section>
+            <h3>Rock & Nick</h3>
+            <p>Visit <a title="" href="www.rock.com"> this ... </a> web page </p>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
