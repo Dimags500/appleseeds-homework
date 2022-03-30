@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pseusdo selector animation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+
+            background-color: crimson;
+            height: 500px;
+            width: 100%;
+            position: relative;
+
+
+        }
+
+        .box {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            height: 100px;
+            width: 100px;
+
+            background-color: aliceblue;
+
+
+        }
+
+
+        .box:hover {
+
+            background-color: rgb(28, 37, 28);
+
+
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            left: 100px;
+
+            height: 100px;
+            width: 100px;
+
+            background-color: green;
+
+            transition: all;
+            transition-duration: 2s;
+        }
+
+
+        .box:hover::before {
+            left: 0;
+            background-color: rgb(28, 37, 28);
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="box"></div>
+    </main>
+
+</body>
+
+</html>
