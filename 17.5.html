@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip</title>
+
+    <style>
+        body {
+            margin: 10%;
+        }
+
+        p {
+            position: relative;
+        }
+
+
+        p::before,
+        p::after {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+        }
+
+        p:hover::before {
+            content: attr(data-tooltip);
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p data-tooltip="Rock will Win">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore recusandae earum
+        facere perspiciatis in quo
+        minima repellendus hic velit corporis, harum praesentium aliquid ipsa non consequuntur vero maxime. Qui
+        repellendus veritatis dolores? Soluta ea officiis odio. Blanditiis consectetur reprehenderit est?</p>
+
+</body>
+
+</html>
