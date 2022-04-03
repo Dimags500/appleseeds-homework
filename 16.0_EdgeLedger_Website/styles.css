@@ -110,6 +110,10 @@ img {
   content: "";
 }
 
+.hero.blog {
+  background: url("./images/home/blog.jpg") no-repeat center center/cover;
+}
+
 /*Icons*/
 
 .icons {

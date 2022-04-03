@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - spinners</title>
+
+    <style>
+        main {
+
+            height: 300px;
+            margin: 100px;
+            background-color: aqua;
+            position: relative;
+        }
+
+        #box {
+            margin: 20%;
+
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+
+            border: 2px solid;
+
+            transition: all ease-in-out 1s;
+            animation: bottom-move 2s infinite;
+            animation-direction: normal;
+
+        }
+
+
+
+        @keyframes top-move {
+            0% {
+                border-top: 2px solid white;
+
+            }
+
+            25% {
+                border-right: 2px solid white;
+            }
+
+            50% {
+                border-bottom: 2px solid white;
+
+            }
+
+            75% {
+                border-left: 2px solid white;
+
+            }
+
+            100% {
+                border-top: 2px solid white;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div id="box">
+
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>

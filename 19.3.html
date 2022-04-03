@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS transitions</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            --main-color: deeppink;
+            --text-color: aliceblue;
+            --dark-color: black;
+
+
+        }
+
+        main {
+            height: 500px;
+
+            position: relative;
+            padding: 50px;
+
+        }
+
+        .btn {
+
+            margin: 15px;
+            color: var(--dark-color);
+
+            width: 100px;
+            height: 50px;
+            border: 1px solid wheat;
+
+        }
+
+        #btn-1 {
+            transition-property: all;
+
+
+
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #btn-1::before {
+
+            top: 10px;
+            left: 65px;
+            content: '';
+            width: 90px;
+            height: 40px;
+            padding: 5px;
+
+            z-index: -1;
+
+            position: absolute;
+            transition-property: all;
+            transition-duration: 3s;
+
+            overflow: hidden;
+
+
+        }
+
+        #btn-1:hover::before {
+            content: '';
+            background-color: red;
+            transform: translateY(55px);
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+
+
+
+
+
+
+        #btn-2 {
+            transition: all;
+            overflow: hidden;
+        }
+
+        #btn-2::after {
+
+            top: 65px;
+            left: 120px;
+            content: '';
+            width: 90px;
+            height: 40px;
+            padding: 5px;
+
+            position: absolute;
+
+            transition-property: all;
+            transition-duration: 3s;
+
+        }
+
+        #btn-2:hover::after {
+            content: 'tttttttt';
+            background-color: black;
+            color: aliceblue;
+            transform: translate(80px);
+
+
+        }
+
+        #btn-3 {
+            transition: all;
+        }
+
+        #btn-3::before {
+            top: 10px;
+            left: 334px;
+            content: '';
+            width: 90px;
+            height: 40px;
+            padding: 5px;
+
+            position: absolute;
+
+            transition-property: all;
+            transition-duration: 3s;
+
+        }
+
+        #btn-3:hover::before {
+            color: black;
+            background-color: yellow;
+            transform: rotate(180deg);
+            top: 64px;
+        }
+
+
+
+        #btn-4 {
+            transition: all;
+            transition-property: all;
+            transition-duration: 3s;
+        }
+
+        #btn-4:hover {
+            background-color: red;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <button class="btn" id="btn-1">Translate Y</button>
+        <button class="btn" id="btn-2">Translate</button>
+        <button class="btn" id="btn-3">Rotate</button>
+        <button class="btn" id="btn-4">Scale & Opacity</button>
+    </main>
+
+</body>
+
+</html>
