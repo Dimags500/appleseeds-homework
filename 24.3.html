@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Responsive Grid</title>
+
+    <style>
+        .container {
+            display: grid;
+            grid-gap: 0.5rem;
+
+            grid-template-areas:
+                'header  header  header'
+                'sidebar1 main sidebar2'
+                'footer  footer  footer';
+        }
+
+
+
+
+        header {
+            background-color: aqua;
+            padding: 0.5rem;
+            grid-area: header;
+        }
+
+        .sidebar1 {
+            background-color: coral;
+            grid-area: sidebar1;
+
+
+        }
+
+        .main {
+            background-color: pink;
+            grid-area: main;
+
+        }
+
+        .sidebar2 {
+            background-color: seagreen;
+            grid-area: sidebar2;
+
+        }
+
+        .footer {
+            background-color: purple;
+
+            grid-area: footer;
+
+        }
+
+        .padding {
+            padding: 0.2rem;
+
+        }
+
+
+
+        @media(max-width: 768px) {
+            .container {
+                display: grid;
+
+
+                grid-template-areas:
+                    'header  header  header'
+                    'sidebar1 main main '
+                    'sidebar2 sidebar2 sidebar2'
+                    'footer  footer  footer';
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+            .container {
+                display: grid;
+
+
+                grid-template-areas:
+                    'header    '
+                    'sidebar1   '
+                    ' main '
+                    'sidebar2  '
+                    'footer    ';
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header padding">
+            <h1>Header</h1>
+        </header>
+        <aside id="sidebar1 " class="sidebar1 padding">
+            <h4>Sidebar 1</h4>
+        </aside>
+        <main class=" main padding">
+            <h4>Main</h4>
+            <div class="content ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, exercitationem. Rem libero eum quod
+                    blanditiis voluptatibus exercitationem tempora vel eveniet.</p>
+            </div>
+        </main>
+        <aside id="sidebar2" class="sidebar2 padding">
+            <h4>Sidebar 2</h4>
+        </aside>
+        <footer class="footer  padding">
+            <h4>Fotter</h4>
+        </footer>
+    </div>
+
+
+
+</body>
+
+</html>
