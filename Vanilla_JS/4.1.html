@@ -14,19 +14,42 @@
 
     <script>
 
-        let numSiblings = prompt("Hello Rock");
+        // let numSiblings = prompt("Hello Rock");
 
-        function res(numSiblings) {
-            if (numSiblings == 1) {
+        // function res1(numSiblings) {
+        //     if (numSiblings == 1) {
+        //         console.log("1 good day");
+        //     } else if (numSiblings > 1) {
+        //         console.log("many good days");
+        //     } else {
+        //         console.log("nada");
+        //     }
+        // } 2
+
+        // res1(numSiblings);
+
+        //---------------------------------------------------------
+
+        // == equals dosen't care about type & comapre the value only 
+        // == convert both values to same type & then compare 
+        // while === strickt equals compare both value & type  so , in this case '1' !== 1
+
+        const res2 = numSiblings => {
+
+            if (numSiblings === 1) {
                 console.log("1 good day");
-            } else if (numSiblings > 1) {
+            }
+            else if (numSiblings > 1) {
                 console.log("many good days");
-            } else {
+            }
+            else {
+
                 console.log("nada");
             }
-        } 2
-
-        res(numSiblings);
+        }
+        let numSiblings = prompt("Hello Rock");
+        let prsed = parseInt(numSiblings);
+        res2(prsed);
 
     </script>
 </body>
