@@ -29,13 +29,13 @@ let add = function (a, b = 5) {
 
 // From function expressions to function declarations
 function hello() {
-  "Hello!";
+  return "Hello!";
 }
 
 function squareRoot(a) {
-  Math.sqrt(a);
+  return Math.sqrt(a);
 }
 
 function randomNumbers(a, b) {
-  Math.random() * (a - b) + b;
+  return Math.random() * (a - b) + b;
 }
