@@ -1,5 +1,5 @@
 function colors(color) {
-  switch (color) {
+  switch (color.toLowerCase()) {
     case "yellow":
     case "pink":
     case "orange":
@@ -16,8 +16,8 @@ function colors(color) {
 }
 
 const color1 = colors("pink");
-const color2 = colors("purple");
-const color3 = colors("rock");
+const color2 = colors("purpLe");
+const color3 = colors("Rock");
 
 console.log(color1);
 console.log(color2);
