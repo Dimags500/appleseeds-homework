@@ -13,11 +13,11 @@ const obj_arr = Object.values(obj);
 
 const arr1 = [12, 3, 55, 4];
 
-const obj_to_arr = Object.assign({}, arr1);
+const arr_to_obj = Object.assign({}, arr1);
 
 // --------------------------------------------- 5
 
-Array.isArray(obj_to_arr);
+Array.isArray(arr_to_obj);
 
 // -------------------------------------- 6 , 7
 
