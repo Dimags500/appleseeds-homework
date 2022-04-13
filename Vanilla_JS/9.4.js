@@ -35,31 +35,44 @@
 
 //------------------  my long answer )))
 
-function someFunc(n) {
-  let len = n;
-  let arr = [];
+// function someFunc(n) {
+//   let len = n;
+//   let arr = [];
 
-  for (let i = 1; i < len; i++) {
-    let step = i;
+//   for (let i = 1; i < len; i++) {
+//     let step = i;
 
-    arr[step] = new Array(step).fill(" "); // n
+//     arr[step] = new Array(step).fill(" "); // n
 
-    for (let j = 0; j < step; j++) {
-      arr[step][j] = "#";
-    }
-  }
+//     for (let j = 0; j < step; j++) {
+//       arr[step][j] = "#";
+//     }
+//   }
 
-  let obj = Object.assign({}, arr);
+//   let obj = Object.assign({}, arr);
 
-  for (let i = 1; i < len; i++) {
-    console.log("step :" + i);
+//   for (let i = 1; i < len; i++) {
+//     console.log("step :" + i);
 
-    let display = "";
-    for (let j = 0; j < i; j++) {
-      display += obj[i][j];
-      console.log(display);
-    }
+//     let display = "";
+//     for (let j = 0; j < i; j++) {
+//       display += obj[i][j];
+//       console.log(display);
+//     }
+//   }
+// }
+
+// someFunc(5);
+
+function stepsShape(num) {
+  if (num < 0) return console.log("arg should be postive integer");
+  let str = "".padEnd(num);
+  for (let i = 0; i < num; i += 1) {
+    const sliceFirstPiece = str.slice(0, i);
+    const sliceLastPiece = str.slice(i, num - 1);
+    const symbol = "#";
+    str = sliceFirstPiece + symbol + sliceLastPiece;
+    console.log(str);
   }
 }
-
-someFunc(5);
+stepsShape(4);
