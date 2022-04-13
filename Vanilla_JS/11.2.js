@@ -28,20 +28,48 @@ const doubleValues = [12, 2, 33, 4];
 
 //-----------------------------------------------------------4
 
-const str = "Rock will Win tHe World  You Know !";
-let obj = { a: 0, e: 0, i: 0, o: 0, u: 0 };
+// const str = "Rock will Win tHe World  You Know !";
+// let obj = { a: 0, e: 0, i: 0, o: 0, u: 0 };
 
-function vowelCount(str) {
-  const str_arr = Array.prototype.map.call(str, (eachLetter) => {
-    return eachLetter.toLowerCase();
-  });
+// function vowelCount(str) {
+//   const str_arr = Array.prototype.map.call(str, (eachLetter) => {
+//     return eachLetter.toLowerCase();
+//   });
 
-  str_arr.forEach((char) => {
-    if (obj[char] != undefined) {
-      obj[char]++;
-    }
-  });
-  return obj;
-}
+//   str_arr.forEach((char) => {
+//     if (obj[char] != undefined) {
+//       obj[char]++;
+//     }
+//   });
+//   return obj;
+// }
 
-console.log(vowelCount(str));
+// console.log(vowelCount(str));
+
+//-----------------------------------------------------------5
+
+// const capitalize = (str) => str.toUpperCase();
+// console.log(capitalize("Rock will Win"));
+
+//-----------------------------------------------------------6
+
+// function pp4(str) {
+//   let nums_arr = str.split("").map((x) => x.charCodeAt(x) + 1);
+//   let new_str = nums_arr
+//     .map((x) => String.fromCodePoint(x))
+//     .join()
+//     .replaceAll(",", "");
+
+//   return new_str;
+// }
+
+// let str = "abcd";
+// console.log("Started str :" + str);
+// console.log("Resualt :" + pp4(str));
+
+//-----------------------------------------------------------7
+
+// capitalize function from section 6
+
+// const swapCase = (str) => capitalize(str);
+// console.log(swapCase("Tiktak"));
