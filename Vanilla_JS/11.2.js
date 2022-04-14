@@ -1,4 +1,4 @@
-const doubleValues = [12, "tarek", 2, 33, 4, "rock"];
+const doubleValues = [12, 2, 33, 4];
 
 //-----------------------------------------------------------1
 
@@ -21,10 +21,15 @@ const doubleValues = [12, "tarek", 2, 33, 4, "rock"];
 
 //-----------------------------------------------------------3
 
-const showFirstAndLast = (arr) =>
-  [arr.shift(), arr.pop()].map((num) => String(num));
+// const mixed_arr = [12, "nick", 2, "long", 33, 4, "rock"];
 
-console.log(showFirstAndLast(doubleValues));
+// const showFirstAndLast = (arr) => {
+//   const filtred = arr.filter((i) => typeof i === "string");
+
+//   return [filtred.shift(), filtred.pop()];
+// };
+
+// console.log(showFirstAndLast(mixed_arr));
 
 //-----------------------------------------------------------4
 
