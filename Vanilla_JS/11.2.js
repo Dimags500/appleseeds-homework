@@ -1,4 +1,4 @@
-const doubleValues = [12, 2, 33, 4];
+const doubleValues = [12, "tarek", 2, 33, 4, "rock"];
 
 //-----------------------------------------------------------1
 
@@ -21,10 +21,10 @@ const doubleValues = [12, 2, 33, 4];
 
 //-----------------------------------------------------------3
 
-// const showFirstAndLast = (arr) =>
-//   [arr.shift(), arr.pop()].map((num) => String(num));
+const showFirstAndLast = (arr) =>
+  [arr.shift(), arr.pop()].map((num) => String(num));
 
-// console.log(showFirstAndLast(doubleValues));
+console.log(showFirstAndLast(doubleValues));
 
 //-----------------------------------------------------------4
 

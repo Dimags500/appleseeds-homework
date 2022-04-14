@@ -57,8 +57,8 @@ const data = [
 
 // -----------------------------------------------------3
 
-// const meats_array = data.map((x) => x.favoriteFoods.meats);
-// const fish_array = data.map((x) => x.favoriteFoods.fish);
+// const meats_array = data.map((x) => x.favoriteFoods.meats.join());
+// const fish_array = data.map((x) => x.favoriteFoods.fish.join());
 // const food = meats_array.concat(fish_array);
 
 // const food2 = [];
@@ -80,3 +80,25 @@ const data = [
 // });
 
 // console.log(food_obj);
+
+// ----------------------------------------- 3 ver 2
+
+// const food_array = [
+//   ...data.map((x) => x.favoriteFoods.meats),
+//   ...data.map((x) => x.favoriteFoods.fish),
+// ]
+//   .join()
+//   .split(",");
+
+// const foor_object = {};
+
+// food_array.forEach((item) => {
+//   if (foor_object[item] === undefined) {
+//     foor_object[item] = 0;
+//   }
+//   if (foor_object[item] !== undefined) {
+//     foor_object[item] += 1;
+//   }
+// });
+
+// console.log(foor_object);

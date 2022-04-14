@@ -43,14 +43,14 @@ const getCandy = (candyStore, id) =>
 
 //--------------------------------------------------- 4
 
-function buy(candyStore, id) {
-  const candy = getCandy(candyStore, id);
+// function buy(candyStore, id) {
+//   const candy = getCandy(candyStore, id);
 
-  candy.amount -= 1;
+//   candy.amount -= 1;
 
-  candyStore.cashRegister += candy.price;
-}
-console.log(candyStore);
+//   candyStore.cashRegister += candy.price;
+// }
+// console.log(candyStore);
 
-buy(candyStore, "5hd7y");
-console.log(candyStore);
+// buy(candyStore, "5hd7y");
+// console.log(candyStore);
