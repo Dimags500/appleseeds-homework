@@ -16,6 +16,17 @@ const carMarket = {
   getAllBrandsToBuyAgencyId: (agencyId) =>
     carMarket.getAgencyById(agencyId).cars.map((item) => item.brand),
 
+  // ------------------------------- Customers Getters
+  getCustomerBy: (customerId) =>
+    carMarket.customers.find((item) => item.id == customerId),
+  getCustomerByName: (customerName) =>
+    carMarket.customers.find((item) => item.name == customerName),
+  getCustomerIdByName: (customerName) =>
+    carMarket.getCustomerByName(customerName).id,
+  getAllCustomersNames: () => carMarket.customers.map((item) => item.name),
+  getAllCustomerCars: (customerId) => carMarket.getCustomerBy(customerId).cars,
+  getCustomerCash: (customerId) => carMarket.getCustomerBy(customerId).cash,
+
   sellers: [
     {
       agencyName: "Best Deal",
@@ -680,7 +691,7 @@ const carMarket = {
 //? @return {object[]} - carsArray - arrays of all models objects of specific agency
 
 //------------------------------------------------------------------------------------------6
-// console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
+console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 
 //* getAllBrandsToBuyAgencyId
 //? @param {string} - agencyId -  id of agency
