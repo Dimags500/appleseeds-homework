@@ -16,6 +16,52 @@ const carMarket = {
   getAllBrandsToBuyAgencyId: (agencyId) =>
     carMarket.getAgencyById(agencyId).cars.map((item) => item.brand),
 
+  // ------------------------------- Sellers Setters
+
+  setPropertyBrandToAllCars: function () {
+    carMarket.sellers.forEach((item) => {
+      item.cars.forEach((m) => {
+        m.models.forEach((car) => (car.barnd = m.brand));
+      });
+    });
+  },
+
+  setNewCarToAgency: (agencyId, newCar) => {
+    // let agencyCars = carMarket.getAgencyById(agencyId).cars;
+    // let carBrand = agencyCars.find((model) => model.brand == newCar.barnd);
+    // carBrand.models.push(newCar);
+    // lersion 2
+
+    carMarket.sellers.forEach((seller) => {
+      if (seller.agencyId === agencyId) {
+        seller.cars.forEach((item) => {
+          if (item.brand === newCar.brand) {
+            item.models.push(newCar);
+            console.log("new car added to " + newCar.brand);
+          }
+        });
+      }
+    });
+  },
+
+  deleteCarFromAgency: function (agencyId, carNumber) {
+    carMarket.sellers.forEach((seller) => {
+      if (seller.agencyId === agencyId) {
+        seller.cars.forEach((brand) => {
+          brand.models = brand.models.filter(
+            (car) => car.carNumber != carNumber
+          );
+
+          // console.log(brand.models);
+        });
+      }
+    });
+  },
+
+  decrementOrIncrementCashOfAgency: (agencyId, amount) => {
+    ///////////////////////////////// ------------------------------------------ here
+  },
+
   // ------------------------------- Customers Getters
   getCustomerBy: (customerId) =>
     carMarket.customers.find((item) => item.id == customerId),
@@ -649,9 +695,12 @@ const carMarket = {
   },
 };
 
-// carMarket.setNewCarToAgency("26_IPfHU1");
+carMarket.decrementOrIncrementCashOfAgency("Plyq5M5AZ", 2000);
 
 // ---------------------------------------------------------------------- Agency Getters
+
+//#region Agency Getters
+
 //! agency's func's
 //todo getters
 
@@ -691,13 +740,17 @@ const carMarket = {
 //? @return {object[]} - carsArray - arrays of all models objects of specific agency
 
 //------------------------------------------------------------------------------------------6
-console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
+// console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 
 //* getAllBrandsToBuyAgencyId
 //? @param {string} - agencyId -  id of agency
 // ? @return {string[]} - arrOfBrands - arrays of all brands name in specific agency
 
+//#endregion   Agency Getters
+
 // ---------------------------------------------------------------------- Customers Getters
+
+//#region Customers Getters
 
 //----------------------------------------------------------------------------7
 // console.log(carMarket.getCustomerByName("Lilah Goulding"));
@@ -736,12 +789,16 @@ console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 //? @param {id} - costumerId - costumer id
 //? @return {number} - CustomerCash
 
+//#endregion  Customers Getters
+
 // ---------------------------------------------------------------------- Agency Setters
+
+//#region Agency Setters
 
 // ---------------------------------------1
 // carMarket.setPropertyBrandToAllCars();
 // const cars = carMarket.sellers.map((i) => i.cars);
-// const models = cars.forEach((i) => {
+// cars.forEach((i) => {
 //   i.forEach((x) => console.log(x));
 // });
 
@@ -750,8 +807,16 @@ console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 //? @param {}
 //? @return {}
 
-//todo Agency setters
 // ---------------------------------------2
+
+// carMarket.setNewCarToAgency("26_IPfHU1", {
+//   name: "Ziga",
+//   year: 2022,
+//   price: 237000,
+//   carNumber: "DZ32Z4",
+//   ownerId: "26_IPfHU1",
+//   brand: "toyota",
+// });
 
 //* setNewCarToAgency
 //? @param {string} - id of agency
@@ -759,13 +824,14 @@ console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 //? @return {}
 
 // ---------------------------------------3
+// carMarket.deleteCarFromAgency("Plyq5M5AZ", "O4_Jv");
 
 //* deleteCarFromAgency
 //? @param {string} - id of agency
 //? @param {string} -  Car id
 // ? @return {}
 
-// ---------------------------------------4
+// ---------------------------------------4 ?????
 
 //* decrementOrIncrementCashOfAgency
 //? @param {string} - agencyId
@@ -786,18 +852,71 @@ console.log(carMarket.getAllBrandsToBuyAgencyId("Plyq5M5AZ"));
 //? @param {}
 // ? @return {objects[]} - sellers - array of all agency's
 
-//todo setters
+//#endregion Agency Setters
+
 // ---------------------------------------------------------------------- Customers Setters
+
+//#region Customers Setters
 
 //* setCarToCostumer
 //? @param {string} - costumerId
 //? @param {object} - carObject
 //? @return {object[]} - allCarsOfCostumer
+
 //* deleteCarOfCostumer
 //? @param {string} - costumerId
 //? @param {string} - carId
 //? @return {object[]} - allCarsOfCostumer
+
 //* decrementOrIncrementCashOfCostumer
 //? @param {string} - costumerId
 //? @param {number} - amount - negative or positive amount
 // ? @return {number} - costumerCash
+
+// #endregion Customers Setters
+
+//! -------------------------------------------------------            Sorting & Filtering
+//* 2) sortAndFilterByYearOfProduction
+//?   filter and Sort in a Ascending or Descending order all vehicles for sale by year of production.
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromYear - Will display vehicles starting this year
+//?   @param {number} - toYear - Will display vehicles up to this year
+//?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
+//?   @return {object[]} - arrayOfModels - array of sorted cars
+
+//* 3) sortAndFilterByPrice
+//?   filter and Sort in a Ascending or Descending order all vehicles for sale by price of the cars.
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromPrice - Will display vehicles starting at this price
+//?   @param {number} - fromPrice - Will display vehicles up to this price
+//?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
+//?   @return {object[]} - arrayOfModels - array of sorted cars
+
+//* 4 ) searchCar
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromYear - Will display vehicles starting this year
+//?   @param {number} - toYear - Will display vehicles up to this year
+//?   @param {number} - fromPrice - Will display vehicles starting at this price
+//?   @param {number} - fromPrice - Will display vehicles up to this price
+//?   optional @param {string} - brand - Look only for cars of this brand
+
+//* 5 ) sellCar
+//?   Sell ​​a car to a specific customer
+//?   @param {string} - agencyId
+//?   @param {string} - customerId
+//?   @param {string} - carModel
+//?   @return {object} - The object of the car purchased by the customer or an explanation message
+// *     - 5a. Subtract the vehicle amount + 17% (tax) from the customer's cash.
+// *     - 5b. Add the vehicle value to the car agency cash.
+// *     - 5c. Change the car owner's id to the customer's id.
+// *     - 5d. Remove the car from the array of the agency's car models.
+// *     - 5e. Add the car to the client cars array.
+// *
+// *     Taxes Authority:
+// *     - 5f. Pay 17 percent of the vehicle value to the tax authority. (add the amount to totalTaxesPaid)
+// *     - 5g. Increase the number of transactions made in one (numberOfTransactions)
+// *     - 5h. Add the vehicle amount + tax to sumOfAllTransactions
+// !     - Check that there is the requested vehicle at the agency in not return 'The vehicle does not exist at the agency'
+// !     - Check that the customer has enough money to purchase the vehicle, if not return 'The customer does not have enough money'
+
+//!      - Try to divide the tasks into several functions and try to maintain a readable language.
