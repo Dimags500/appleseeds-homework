@@ -59,9 +59,38 @@ const carMarket = {
   },
 
   decrementOrIncrementCashOfAgency: (agencyId, amount) => {
-    ///////////////////////////////// ------------------------------------------ here
+    let agancyCash;
+    carMarket.sellers.forEach((item) => {
+      if (item.agencyId === agencyId) {
+        if (item.cash > 0) {
+          item.cash += amount;
+          agancyCash = item.cash;
+        }
+      }
+    });
+    return agancyCash;
   },
 
+  decrementOrIncrementCreditOfAgency: (agencyId, amount) => {
+    let agencyCredit;
+    carMarket.sellers.forEach((item) => {
+      if (item.agencyId === agencyId) {
+        item.credit += amount;
+        agencyCredit = item.credit;
+      }
+    });
+    return agencyCredit;
+  },
+
+  setAmountOfCarsToBuyToAllAgencys: function () {
+    carMarket.sellers.forEach((item) => {
+      let amountOfCars = item.cars.reduce((total, item) => {
+        return total + item.models.length;
+      }, 0);
+
+      item["amountOfCars"] = amountOfCars;
+    });
+  },
   // ------------------------------- Customers Getters
   getCustomerBy: (customerId) =>
     carMarket.customers.find((item) => item.id == customerId),
@@ -695,8 +724,6 @@ const carMarket = {
   },
 };
 
-carMarket.decrementOrIncrementCashOfAgency("Plyq5M5AZ", 2000);
-
 // ---------------------------------------------------------------------- Agency Getters
 
 //#region Agency Getters
@@ -831,7 +858,9 @@ carMarket.decrementOrIncrementCashOfAgency("Plyq5M5AZ", 2000);
 //? @param {string} -  Car id
 // ? @return {}
 
-// ---------------------------------------4 ?????
+// ---------------------------------------4
+// const x = carMarket.decrementOrIncrementCashOfAgency("Plyq5M5AZ", 1200000);
+// console.log(x);
 
 //* decrementOrIncrementCashOfAgency
 //? @param {string} - agencyId
@@ -840,12 +869,17 @@ carMarket.decrementOrIncrementCashOfAgency("Plyq5M5AZ", 2000);
 
 // ---------------------------------------5
 
+// const x = carMarket.decrementOrIncrementCreditOfAgency("Plyq5M5AZ", -112000000);
+// console.log(x);
+
 //* decrementOrIncrementCreditOfAgency
 //? @param {string} - agencyId
 //? @param {number} - amount - negative or positive amount
 // ? @return {number} - agencyCash
 
 // ---------------------------------------6
+carMarket.setAmountOfCarsToBuyToAllAgencys();
+console.log(carMarket.sellers);
 
 //* setAmountOfCarsToBuyToAllAgency's
 //? set a new property amountOfCars to all agency's, that represent the amount of cars available in the agency.
