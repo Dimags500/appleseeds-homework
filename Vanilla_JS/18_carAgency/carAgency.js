@@ -4,7 +4,6 @@ const carMarket = {
     carMarket.sellers.find((item) => item.agencyId == agencyId),
   getAgencyByName: (agencyName) =>
     carMarket.sellers.find((item) => item.agencyName == agencyName),
-
   getAgencyIdByName: (agencyName) =>
     carMarket.sellers.find((item) => item.agencyName == agencyName).agencyId,
   getAllAgenciesName: () => carMarket.sellers.map((item) => item.agencyName),
@@ -25,7 +24,6 @@ const carMarket = {
       });
     });
   },
-
   setNewCarToAgency: (agencyId, newCar) => {
     // let agencyCars = carMarket.getAgencyById(agencyId).cars;
     // let carBrand = agencyCars.find((model) => model.brand == newCar.barnd);
@@ -43,7 +41,6 @@ const carMarket = {
       }
     });
   },
-
   deleteCarFromAgency: function (agencyId, carNumber) {
     carMarket.sellers.forEach((seller) => {
       if (seller.agencyId === agencyId) {
@@ -57,7 +54,6 @@ const carMarket = {
       }
     });
   },
-
   decrementOrIncrementCashOfAgency: (agencyId, amount) => {
     let agancyCash;
     carMarket.sellers.forEach((item) => {
@@ -70,7 +66,6 @@ const carMarket = {
     });
     return agancyCash;
   },
-
   decrementOrIncrementCreditOfAgency: (agencyId, amount) => {
     let agencyCredit;
     carMarket.sellers.forEach((item) => {
@@ -81,7 +76,6 @@ const carMarket = {
     });
     return agencyCredit;
   },
-
   setAmountOfCarsToBuyToAllAgencys: function () {
     carMarket.sellers.forEach((item) => {
       let amountOfCars = item.cars.reduce((total, item) => {
@@ -92,7 +86,7 @@ const carMarket = {
     });
   },
   // ------------------------------- Customers Getters
-  getCustomerBy: (customerId) =>
+  getCustomerById: (customerId) =>
     carMarket.customers.find((item) => item.id == customerId),
   getCustomerByName: (customerName) =>
     carMarket.customers.find((item) => item.name == customerName),
@@ -101,6 +95,58 @@ const carMarket = {
   getAllCustomersNames: () => carMarket.customers.map((item) => item.name),
   getAllCustomerCars: (customerId) => carMarket.getCustomerBy(customerId).cars,
   getCustomerCash: (customerId) => carMarket.getCustomerBy(customerId).cash,
+  // ------------------------------- Customers Setters
+
+  setCarToCostumer: (customerId, car) => {
+    carMarket.customers.forEach((item) => {
+      if (item.id === customerId) {
+        item.cars.push(car);
+      }
+    });
+  },
+  deleteCarOfCostumer: (customerId, carNumber) => {
+    let result = {};
+
+    if (!carMarket.customers.some((item) => item.id == customerId)) {
+      console.log("customer not found");
+      return result;
+    }
+
+    carMarket.customers.forEach((item) => {
+      if (item.id === customerId) {
+        const exist = item.cars.some((item) => item.carNumber == carNumber);
+        if (exist) {
+          item.cars = item.cars.filter((item) => item.carNumber != carNumber);
+          result = item.cars;
+          return;
+        }
+        console.log("wrong carNumber");
+        return;
+      }
+    });
+    return result;
+  },
+  decrementOrIncrementCashOfCostumer: (customerId, mony) => {
+    const customerExist = carMarket.customers.some(
+      (item) => item.id == customerId
+    );
+    if (!customerExist) {
+      console.log("customer not found");
+      return;
+    }
+    let result;
+    carMarket.customers.forEach((item) => {
+      if (item.id === customerId) {
+        if (item.cash > 0) {
+          item.cash += mony;
+          result = item.cash;
+          return;
+        }
+      }
+    });
+
+    return result;
+  },
 
   sellers: [
     {
@@ -724,6 +770,8 @@ const carMarket = {
   },
 };
 
+module.exports = carMarket;
+
 // ---------------------------------------------------------------------- Agency Getters
 
 //#region Agency Getters
@@ -878,8 +926,8 @@ const carMarket = {
 // ? @return {number} - agencyCash
 
 // ---------------------------------------6
-carMarket.setAmountOfCarsToBuyToAllAgencys();
-console.log(carMarket.sellers);
+// carMarket.setAmountOfCarsToBuyToAllAgencys();
+// console.log(carMarket.sellers);
 
 //* setAmountOfCarsToBuyToAllAgency's
 //? set a new property amountOfCars to all agency's, that represent the amount of cars available in the agency.
@@ -892,15 +940,33 @@ console.log(carMarket.sellers);
 
 //#region Customers Setters
 
+//----------------------------------1
+// carMarket.setCarToCostumer("2RprZ1dbL", {
+//   name: "3",
+//   year: 2015,
+//   price: 137000,
+//   carNumber: "AZJZ4",
+//   ownerId: "2RprZ1dbL",
+// });
+// console.log(carMarket.getCustomerById("2RprZ1dbL"));
+
 //* setCarToCostumer
 //? @param {string} - costumerId
 //? @param {object} - carObject
 //? @return {object[]} - allCarsOfCostumer
 
+//---------------------------------------2
+
+// console.log(carMarket.deleteCarOfCostumer("2RprZ1dbL", "WIh0U"));
+
 //* deleteCarOfCostumer
 //? @param {string} - costumerId
 //? @param {string} - carId
 //? @return {object[]} - allCarsOfCostumer
+
+//-------------------------------------------3
+// let res = carMarket.decrementOrIncrementCashOfCostumer("2RprZ1dbL", 0);
+// console.log(res);
 
 //* decrementOrIncrementCashOfCostumer
 //? @param {string} - costumerId

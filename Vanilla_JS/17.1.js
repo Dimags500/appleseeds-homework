@@ -18,16 +18,17 @@
 
 // ----------------------------------------   block 2
 
-var a = 1;
-function b2() {
-  a = 10;
-  return;
-  function a() {}
-}
-b2();
-console.log(a);
+// var a = 1;
+// function b2() {
+//   a = 10;
+//   return;
+//   function a() {}
+// }
+// b2();
+// console.log(a);
 
-// in b2 function frist we put value 10 in var a , but after we overide to local funtion a
+// in b2 function frist we put value 10 in var a , but after we overide to local funtion , so in run time we will get only inner function function
+//  global var a will be 1 ;
 
 // ----------------------------------------   block 3
 
@@ -38,3 +39,5 @@ console.log(a);
 //  }
 //  setTimeout(log, 100);
 // }
+
+//
