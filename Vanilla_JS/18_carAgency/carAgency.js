@@ -8,6 +8,17 @@ const carMarket = {
     carMarket.sellers.find((item) => item.agencyName == agencyName).agencyId,
   getAllAgenciesName: () => carMarket.sellers.map((item) => item.agencyName),
   getAllCarToBuy: () => carMarket.sellers.map((item) => item.cars),
+  getAllCarToBuyFlat: () => {
+    let models = [];
+
+    let cars = carMarket.getAllCarToBuy();
+
+    cars.flat().forEach((item) => {
+      models.push(item.models);
+    });
+
+    return models.flat();
+  },
   getAllCarToBuyByAgencyId: (agencyId) =>
     carMarket.sellers
       .find((item) => item.agencyId == agencyId)
@@ -144,6 +155,51 @@ const carMarket = {
         }
       }
     });
+
+    return result;
+  },
+  // ------------------------------ Sorting & Filtering
+  sortAndFilterByYearOfProduction: (cars, yearFrom, yearTo, order) => {
+    let models = [];
+
+    cars.flat().forEach((item) => {
+      models.push(item.models);
+    });
+
+    models = models.flat().sort((a, b) => a.year - b.year);
+
+    // .sort((a, b) => {
+    //   let name1 = a.name.toLowerCase();
+    //   let name2 = b.name.toLowerCase();
+
+    //   if (name1 < name2) {
+    //     return -1;
+    //   }
+    //   if (name1 > name2) {
+    //     return 1;
+    //   }
+
+    //   return 0;
+    // });
+
+    if (!order) {
+      return models
+        .filter((item) => item.year > yearFrom && item.year < yearTo)
+        .reverse();
+    }
+
+    return models.filter((item) => item.year > yearFrom && item.year < yearTo);
+  },
+  sortAndFilterByPrice: (cars, priceFrom, priceTo, order) => {
+    let result;
+
+    result = cars
+      .filter((item) => item.price > priceFrom && item.price < priceTo)
+      .sort((a, b) => a.price - b.price);
+
+    if (!order) {
+      result.reverse();
+    }
 
     return result;
   },
@@ -975,8 +1031,17 @@ module.exports = carMarket;
 
 // #endregion Customers Setters
 
-//! -------------------------------------------------------            Sorting & Filtering
-//* 2) sortAndFilterByYearOfProduction
+//-------------------------------------------------------            Sorting & Filtering
+
+// #region Sorting & Filtering
+
+//------------------------------------------------------1
+//) sortAndFilterByYearOfProduction
+
+// let cars = carMarket.getAllCarToBuy();
+// let result = carMarket.sortAndFilterByYearOfProduction(cars, 2017, 2020, false);
+// console.log(result);
+
 //?   filter and Sort in a Ascending or Descending order all vehicles for sale by year of production.
 //?   @param {object[]} - arrOfCars - array of cars
 //?   @param {number} - fromYear - Will display vehicles starting this year
@@ -984,13 +1049,21 @@ module.exports = carMarket;
 //?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
 //?   @return {object[]} - arrayOfModels - array of sorted cars
 
+//------------------------------------------------------2
 //* 3) sortAndFilterByPrice
+
+let cars = carMarket.getAllCarToBuyFlat();
+let result = carMarket.sortAndFilterByPrice(cars, 10000, 40000, true);
+console.log(result);
+
 //?   filter and Sort in a Ascending or Descending order all vehicles for sale by price of the cars.
 //?   @param {object[]} - arrOfCars - array of cars
 //?   @param {number} - fromPrice - Will display vehicles starting at this price
 //?   @param {number} - fromPrice - Will display vehicles up to this price
 //?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
 //?   @return {object[]} - arrayOfModels - array of sorted cars
+
+//------------------------------------------------------3
 
 //* 4 ) searchCar
 //?   @param {object[]} - arrOfCars - array of cars
@@ -999,6 +1072,8 @@ module.exports = carMarket;
 //?   @param {number} - fromPrice - Will display vehicles starting at this price
 //?   @param {number} - fromPrice - Will display vehicles up to this price
 //?   optional @param {string} - brand - Look only for cars of this brand
+
+//------------------------------------------------------ 4
 
 //* 5 ) sellCar
 //?   Sell ​​a car to a specific customer
@@ -1020,3 +1095,5 @@ module.exports = carMarket;
 // !     - Check that the customer has enough money to purchase the vehicle, if not return 'The customer does not have enough money'
 
 //!      - Try to divide the tasks into several functions and try to maintain a readable language.
+
+//#endregion    Sorting & Filtering
