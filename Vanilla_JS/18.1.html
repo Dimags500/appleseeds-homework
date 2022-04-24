@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Header</h1>
+    <p>Paragraph</p>
+    <a href="#">link</a>
+    <img src="" alt="" />
+    <div class="x">Div with a class</div>
+    <div id="y">Div with an id</div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+</body>
+<script>
+
+    //#region        1. Select all elements not using the querySelector method.
+
+
+    // let h1 = document.getElementsByTagName('h1');
+    // let p = document.getElementsByTagName('p');
+    // let a = document.getElementsByTagName('a');
+    // let img = document.getElementsByTagName('img');
+    // let byClass = document.getElementsByClassName('x');
+    // let byId = document.getElementById('y');
+    // let inputs = document.getElementsByTagName('input');
+
+    // console.log(h1[0]);
+    // console.log(p[0]);
+    // console.log(a[0]);
+    // console.log(img[0]);
+    // console.log(byClass[0]);
+    // console.log(byId);
+    // console.log(inputs[0]);
+    // console.log(inputs[1]);
+    // console.log(inputs[2]);
+
+    //#endregion
+
+
+    //#region         2. Select all elements using querySelector method.
+
+
+    // let h1 = document.querySelector('h1');
+    // let a = document.querySelector('a');
+    // let p = document.querySelector('p');
+    // let img = document.querySelector('img');
+    // let byClass = document.querySelector('.x');
+    // let byId = document.querySelector('#y');
+    // let inputs = document.querySelectorAll('input');
+
+    // console.log(h1);
+    // console.log(p);
+    // console.log(a);
+    // console.log(img);
+    // console.log(byClass);
+    // console.log(byId);
+    // console.log(inputs);
+
+    //#endregion
+
+
+    //#region        3. Select all inputs and iterate over them with the forEach  querySelectorAll and getElementsByTagName.
+
+
+    // let inputs = document.querySelectorAll('input');
+    // inputs.forEach(item => console.log(item));
+
+    // let inputs = Array.from(document.getElementsByTagName('input'));
+    // inputs.forEach(item => console.log(item));
+
+
+
+    //#endregion
+
+
+
+</script>

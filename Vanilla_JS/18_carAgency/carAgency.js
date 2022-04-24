@@ -1,3 +1,5 @@
+const { log } = require("console");
+
 const carMarket = {
   // ------------------------------- Sellers Getters
   getAgencyById: (agencyId) =>
@@ -203,7 +205,22 @@ const carMarket = {
 
     return result;
   },
+  searchCar: (cars, yearFrom, yearTo, priceFrom, priceTo) => {
+    let result;
 
+    result = cars.filter((item) => {
+      if (
+        item.year > yearFrom &&
+        item.year < yearTo &&
+        item.price > priceFrom &&
+        item.price < priceTo
+      ) {
+        return item;
+      }
+    });
+
+    return result;
+  },
   sellers: [
     {
       agencyName: "Best Deal",
@@ -1052,9 +1069,9 @@ module.exports = carMarket;
 //------------------------------------------------------2
 //* 3) sortAndFilterByPrice
 
-let cars = carMarket.getAllCarToBuyFlat();
-let result = carMarket.sortAndFilterByPrice(cars, 10000, 40000, true);
-console.log(result);
+// let cars = carMarket.getAllCarToBuyFlat();
+// let result = carMarket.sortAndFilterByPrice(cars, 10000, 40000, true);
+// console.log(result);
 
 //?   filter and Sort in a Ascending or Descending order all vehicles for sale by price of the cars.
 //?   @param {object[]} - arrOfCars - array of cars
@@ -1066,6 +1083,10 @@ console.log(result);
 //------------------------------------------------------3
 
 //* 4 ) searchCar
+// let cars = carMarket.getAllCarToBuyFlat();
+// let res = carMarket.searchCar(cars, 2015, 2020, 10000, 400000);
+// console.log(res);
+
 //?   @param {object[]} - arrOfCars - array of cars
 //?   @param {number} - fromYear - Will display vehicles starting this year
 //?   @param {number} - toYear - Will display vehicles up to this year
