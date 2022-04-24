@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+    <title>Modifying Elements</title>
+</head>
+<style>
+    h1 {
+        color: red;
+    }
+
+    p {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <h1>
+        I hate the color red. If only I was blue and I can sing "Im
+        blue da da di
+        da da daaa"
+    </h1>
+    <p class="paragraph">I wish I was bigger</p>
+    <div id="description">
+        Select me and change my display property if you dare!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. A sunt amet, quibusdam ab perferendis facilis nisi
+        voluptatibus atque eius officiis officia voluptate reprehenderit itaque deserunt nemo cupiditate nam eaque
+        maiores.
+    </div>
+</body>
+<script>
+
+    // 1. Change the h1 color to blue.
+    document.getElementsByTagName('h1')[0].style.color = 'blue ';
+    //2. Change the paragraph to 30 px
+    document.getElementsByClassName('paragraph')[0].style.fontSize = '30px'
+    //3. Change the description to an inline-block
+    document.getElementById('description').style.display = 'inline-block';
+    //4. Change the body to a background color of green
+    document.body.style.backgroundColor = 'green';
+    //5. Change the documents title from “Modifying Elements” to ..
+    document.head.getElementsByTagName('title')[0].textContent = 'Rock';
+
+
+
+</script>
+
+</html>
