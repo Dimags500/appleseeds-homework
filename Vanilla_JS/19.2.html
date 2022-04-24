@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <ol>
+            <li>rock 1</li>
+            <li>rock 2</li>
+            <li>rock 3</li>
+            <li>rock 4</li>
+
+        </ol>
+    </div>
+
+    <script>
+        const users = [
+            {
+                id: 167464,
+                firstName: "Jimmy",
+                lastName: "Arnold",
+                email: "jimmya@gmail.com",
+            },
+            {
+                id: 578447,
+                firstName: "Martha",
+                lastName: "Goldman",
+                email: "gold@hotmail.com",
+            },
+            {
+                id: 864578,
+                firstName: "Tim",
+                lastName: "Burton",
+                email: "timmy.hotmail.com",
+            },
+        ];
+
+        const fullnames = users.map(item => item.firstName + ' ' + item.lastName);
+
+        let ol = document.getElementsByTagName('ol')[0];
+        ol.style.listStyleType = 'none';
+        let li = [...ol.children];
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].textContent = fullnames[i];
+            li[i].setAttribute('data-id', users[i].id)
+        }
+
+
+
+
+
+
+        console.log(li);
+    </script>
+</body>
+
+</html>
