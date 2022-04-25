@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>Hi you are</h3>
+    <input type="number">
+    <button type="button" onclick="generateSmile(event)">Click to seee</button>
+    <div name="rock">
+        <script>
+            const img = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Smile.svg/150px-Smile.svg.png';
+            function generateSmile(event) {
+
+                let couter = document.querySelector('[type="number"]');
+
+                if (couter.value > 0) {
+                    createElem(couter.value);
+                }
+
+            }
+
+            function createElem(numbers) {
+
+                let parent = document.querySelector('div')
+                parent.innerText = '';
+                const image = document.createElement('img').src = img;
+
+                for (let i = 0; i < numbers; i++) {
+                    const image = document.createElement('img')
+                    image.src = img;
+                    parent.appendChild(image);
+
+                }
+            }
+
+        </script>
+</body>
+
+</html>
