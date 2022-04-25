@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Why are you is you </h3>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <br>
+    <button type="button" id="btn">Click to Check </button>
+
+
+    <script>
+        document.querySelector('[type="button"]').addEventListener('click', () => {
+            let chars = document.getElementsByTagName('textarea')[0].value;
+
+            if (chars.length < 100) {
+                alert('Add more chars , minimum 100');
+            }
+            if (chars.length >= 100) {
+                alert('Your input is good ');
+                location.reload();
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -9,34 +9,46 @@
 </head>
 
 <body>
-    <input type="number" id="ageInput">
-    <button onclick="ageCheck(event)">Click it</button>
-    <p></p>
+
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <button type="button" id="plus">+</button>
+    <button type="button" id="minus">-</button>
 
     <script>
-        function ageCheck(event) {
 
-            const input = document.querySelector('input');
+        let plus = document.querySelector('#plus');
+        let minus = document.querySelector('#minus');
+        let p = document.querySelector('p').style.fontSize = '10px';
 
-            if (input && input.value > 0) {
-                if (input.value >= 18) {
-                    document.querySelector('p').innerText = 'you can drink appear';
-                    return;
-                }
-                document.querySelector('p').innerText = 'you’re too young';
+        plus.addEventListener('click', () => {
 
+            let val = parseInt(document.querySelector('p').style.fontSize) + 10;
+            if (val > 100) {
+                return;
             }
+            document.querySelector('p').style.fontSize = val + 'px';
+        });
 
-            console.log(input.value);
-        }
+
+        minus.addEventListener('click', () => {
+            let val = parseInt(document.querySelector('p').style.fontSize) - 10;
+            if (val < 6) {
+                return;
+            }
+            document.querySelector('p').style.fontSize = val + 'px';
+        });
+
+
+
     </script>
 </body>
 
 </html>
 
 
-<!-- 
-Create a webpage that has an input field for the user’s age and a button.
-If the user enters a number above 18, make the text “you can drink appear”.
-If the user enters a number below 18, make the text “you’re too young” 
-appear. -->
+
+<!-- Create a webpage that has some text and two buttons with ‘+’ and ‘-‘ 
+Clicking the ‘+’ button should increase the text’s font-size and clicking the ‘-‘ 
+should decrease it. 
+Limit the font size to be between 6px and 100px. -->
