@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <button type="button" id="plus">+</button>
+    <button type="button" id="minus">-</button>
+
+    <script>
+
+        let plus = document.querySelector('#plus');
+        let minus = document.querySelector('#minus');
+        let p = document.querySelector('p').style.fontSize = '10px';
+
+        plus.addEventListener('click', () => {
+
+            let val = parseInt(document.querySelector('p').style.fontSize) + 10;
+            if (val > 100) {
+                return;
+            }
+            document.querySelector('p').style.fontSize = val + 'px';
+        });
+
+
+        minus.addEventListener('click', () => {
+            let val = parseInt(document.querySelector('p').style.fontSize) - 10;
+            if (val < 6) {
+                return;
+            }
+            document.querySelector('p').style.fontSize = val + 'px';
+        });
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- Create a webpage that has some text and two buttons with ‘+’ and ‘-‘ 
+Clicking the ‘+’ button should increase the text’s font-size and clicking the ‘-‘ 
+should decrease it. 
+Limit the font size to be between 6px and 100px. -->
