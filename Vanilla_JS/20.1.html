@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="ageInput">
+    <button onclick="ageCheck(event)">Click it</button>
+    <p></p>
+
+    <script>
+        function ageCheck(event) {
+
+            const input = document.querySelector('input');
+
+            if (input && input.value > 0) {
+                if (input.value >= 18) {
+                    document.querySelector('p').innerText = 'you can drink appear';
+                    return;
+                }
+                document.querySelector('p').innerText = 'you’re too young';
+
+            }
+
+            console.log(input.value);
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+Create a webpage that has an input field for the user’s age and a button.
+If the user enters a number above 18, make the text “you can drink appear”.
+If the user enters a number below 18, make the text “you’re too young” 
+appear. -->
