@@ -31,7 +31,6 @@
 
 
         let inputs = document.querySelectorAll('form')[0];
-        console.log(inputs[6].type);
 
 
         for (let i = 0; i < inputs.length; i++) {
@@ -44,10 +43,10 @@
 
 
             event.target.style.outline = 'none';
-
             if (event.target.nextElementSibling) {
 
                 event.target.nextElementSibling.style.border = '2px red solid';
+                event.target.style.border = '2px black solid';
 
                 if (event.target.previousElementSibling) {
                     event.target.previousElementSibling.style.border = '2px solid  black';
@@ -59,12 +58,12 @@
         }
 
 
-        function onExit(event) {
-            if (event.target.previousElementSibling) {
-                event.target.previousElementSibling.style.border = '10px orange solid';
+        // function onExit(event) {
+        //     if (event.target.previousElementSibling) {
+        //         event.target.previousElementSibling.style.border = '10px orange solid';
 
-            }
-        }
+        //     }
+        // }
 
 
     </script>
