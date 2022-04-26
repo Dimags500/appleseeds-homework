@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture appear</title>
+    <style>
+        .img {
+            height: 300px;
+            width: 100%;
+            background: url('https://cdn2.iconfinder.com/data/icons/weather-emoticon/64/07_sun_smile_happy_emoticon_weather_smiley-512.png') center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <label for="show">Show Picture </label>
+        <input type="checkbox" name="show">
+        <div>
+
+        </div>
+    </div>
+
+    <script>
+
+        const checkbox = document.querySelector('[type="checkbox"]');
+
+        let state = false;
+        checkbox.addEventListener('click', () => {
+            let img = document.querySelectorAll('div')[1];
+            state = !state;
+
+            if (state) {
+                img.classList.add('img')
+            }
+            else {
+                img.classList.remove('img');
+            }
+
+
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+<!-- Create a webpage that has a checkbox. If the checkbox is checked, make a 
+photo appear. If it is not, make it disappear. -->
