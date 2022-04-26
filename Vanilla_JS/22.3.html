@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Welcome to letters game </h2>
+    <input type="text">
+    <h4>Keys guessed</h4>
+    <p id="keys"></p>
+    <script>
+
+        let show = document.querySelector('input').value = '?';
+        let randomLetter = String.fromCharCode(Math.floor(Math.random() * (120 - 98 + 1) + 98));
+        console.log(randomLetter);
+        const letters = [];
+
+        if (document.querySelector('button')) {
+
+        }
+
+        window.addEventListener('keypress', (e) => {
+            if (!(e.key.match(/[a-zA-Z]/g))) {  //&& e.keyCode >= 96 && e.keyCode <= 130
+                alert('only a-z input');
+                return;
+            }
+
+            let currLetter = e.key;
+
+            if (letters.some(i => i == currLetter)) {
+                alert('yuse lletter once please ');
+            }
+
+
+            if (currLetter == randomLetter) {
+                let info = document.querySelector('h4');
+                info.innerText = 'Correct : ';
+                info.style.color = 'green';
+
+                document.querySelector('input').value = randomLetter;
+                let btn = document.createElement('button')
+                btn.innerText = 'Next ?';
+                document.body.appendChild(btn);
+                document.querySelector('button').addEventListener('click', () => location.reload())
+
+            }
+            else {
+
+
+                if (!letters.some(i => i == currLetter)) {
+                    letters.push(currLetter);
+                }
+                let info = document.querySelector('h4');
+                info.innerText = 'Wron guess ';
+                info.style.color = 'red';
+                document.querySelector('p').innerHTML = letters;
+                console.log(letters);
+
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
