@@ -31,20 +31,21 @@
 
         let state = false;
         checkbox.addEventListener('click', () => {
+
             let img = document.querySelectorAll('div')[1];
-            state = !state;
 
-            if (state) {
-                img.classList.add('img')
-            }
-            else {
-                img.classList.remove('img');
-            }
+            // state = !state;
 
+            // if (state) {
+            //     img.classList.add('img')
+            // }
+            // else {
+            //     img.classList.remove('img');
+            // }
+
+            img.classList.toggle('img')
 
         })
-
-
 
 
     </script>
