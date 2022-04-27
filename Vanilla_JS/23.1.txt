@@ -7,7 +7,8 @@ in this case we run function in global scope ,
 so this point to object that the function is running in  , 
 si window object in this 
 
-
+the object that call the function is window , so in this case 
+window object will be log  
 
 
 -----------------------------------------------------------
@@ -26,10 +27,9 @@ myObj.greet();
 
 
 
-arrow functions does not have bond , for this , thy look at parent running scope which global  ,
- so wi will get  window in this case , does not have property name
+we will get undifind , becuse arrow function does't have this 
+it will go to the parent object ,and search propery name ther 
 
-to fix it , we can use reguar function
 
 ------------------------------------------------------------
 Question 3:
@@ -39,8 +39,7 @@ const myFuncDec = function () {
   console.log(this);
 };
 
-
-it is depending on whom execute the function , if we run it in global scope , we will get window object
+in this case myFuncDec is in global scope , so will log window object , if we call it 
 
 
 ------------------------------------------------------------
@@ -54,14 +53,15 @@ const myFuncArrow = () => {
 myFuncArrow();
 
 
-we call it from window , it shood log th window object 
+we call it from window , it shood log  window object 
 
 ------------------------------------------------------------
 Question 5:
 a. In your own words what will this point to and why.
 b. How can you fix this code.
+
 document.querySelector(".element").addEventListener(() => {
   console.log(this);
 });
 
-use reguar function
+use regular function ,arrow function does't hold this 
