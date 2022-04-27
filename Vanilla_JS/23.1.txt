@@ -1,0 +1,67 @@
+Question 1:
+In your own words what will this point to and why?(Note 
+this is the global scope)
+console.log(this);
+
+in this case we run function in global scope , 
+so this point to object that the function is running in  , 
+si window object in this 
+
+
+
+
+-----------------------------------------------------------
+Question 2:
+a. In your own words what will this point to and why.
+b. How can you fix this code.
+
+
+const myObj = {
+  name: "Timmy",
+  greet: () => {
+    console.log(`Hello ${this.name}`);
+  },
+};
+myObj.greet();
+
+
+
+arrow functions does not have bond , for this , thy look at parent running scope which global  ,
+ so wi will get  window in this case , does not have property name
+
+to fix it , we can use reguar function
+
+------------------------------------------------------------
+Question 3:
+In your own words what will this point to and why?
+
+const myFuncDec = function () {
+  console.log(this);
+};
+
+
+it is depending on whom execute the function , if we run it in global scope , we will get window object
+
+
+------------------------------------------------------------
+Question 4:
+In your own words what will this point to and why?
+
+
+const myFuncArrow = () => {
+  console.log(this);
+};
+myFuncArrow();
+
+
+we call it from window , it shood log th window object 
+
+------------------------------------------------------------
+Question 5:
+a. In your own words what will this point to and why.
+b. How can you fix this code.
+document.querySelector(".element").addEventListener(() => {
+  console.log(this);
+});
+
+use reguar function
