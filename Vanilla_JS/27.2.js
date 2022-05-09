@@ -20,7 +20,7 @@ function sortWords(arr) {
 }
 
 let p1 = Promise.resolve(["atick", "cro", "riss", "zkij", "rrr"]);
-let p2 = Promise.resolve(["atick", "cro", "riss", "zkij", 2, 3, "rrr"]);
+let p2 = Promise.reject(["atick", "cro", "riss", "zkij", 2, 3, "rrr"]);
 
 p2.then(makeAllCaps)
   .then((res) => {
