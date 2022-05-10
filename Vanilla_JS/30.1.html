@@ -48,6 +48,7 @@
             userNameInput.innerHTML = '';
             userNameInput.value = '';
             let card = document.createElement('div');
+            let imageLink = document.createElement('a');
             let image = document.createElement('img');
             let title = document.createElement('h4');
             let created = document.createElement('p');
@@ -55,11 +56,15 @@
 
             card.classList.add('card');
             image.setAttribute('src', data.avatar_url); /// need fuc 
+
+            imageLink.setAttribute('href', data.html_url)
+            imageLink.setAttribute('target', '_blank')
             title.innerHTML = data.login;
             created.innerText = data.created_at;
             id.innerText = data.id;
 
-            card.append(image, title, created, id)
+            imageLink.appendChild(image)
+            card.append(imageLink, title, created, id)
             cardsDisplay.appendChild(card)
         }
 
@@ -82,7 +87,6 @@
                     })
                     .catch(error => alert('catched' + error))
             }
-
         }
 
         function validation(input) {
