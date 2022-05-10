@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joce Of today</title>
+</head>
+
+<body>
+    <div style="text-align: center;"></div>
+
+    <button onclick="geJoke()">Click</button>
+
+    <script>
+
+        function geJoke() {
+
+            return fetch('https://jsonplaceholder.typicode.com/posts/1').then(response => response.json())
+                .then(json => showJoke(json))
+                .catch((error) => {
+                    console.log(error);
+                })
+
+        }
+
+
+        function showJoke(data) {
+
+
+            if (data) {
+                let h3 = document.createElement('h3');
+                let p = document.createElement('p');
+
+                h3.innerText = data.title;
+                p.innerText = data.body;
+                document.body.append(h3, p)
+
+            }
+        }
+    </script>
+</body>
+
+</html>
