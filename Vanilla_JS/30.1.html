@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub API</title>
+
+    <style>
+        #tools {
+            text-align: center;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        #cards {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            margin: 1%;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="tools">
+            <input type="text" id="userNameInput" value="dimags500">
+            <button> Get User</button>
+        </div>
+
+        <div id="cards"></div>
+    </div>
+
+    <script>
+        let cardsDisplay = document.getElementById('cards');
+        let userNameInput = document.getElementById('userNameInput');
+        let getUserBtn = document.getElementsByTagName('button')[0];
+
+        function cardBuilder(data) {
+            userNameInput.innerHTML = '';
+            userNameInput.value = '';
+            let card = document.createElement('div');
+            let image = document.createElement('img');
+            let title = document.createElement('h4');
+            let created = document.createElement('p');
+            let id = document.createElement('p');
+
+            card.classList.add('card');
+            image.setAttribute('src', data.avatar_url); /// need fuc 
+            title.innerHTML = data.login;
+            created.innerText = data.created_at;
+            id.innerText = data.id;
+
+            card.append(image, title, created, id)
+            cardsDisplay.appendChild(card)
+        }
+
+        function getUser(input) {
+
+            let baseUrl = 'https://api.github.com/users/';
+            if (validation(input)) {
+
+                fetch(baseUrl + input)
+                    .then((res) => {
+
+                        if (!res.ok) {
+                            throw new Error(`HTTP error: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        cardBuilder(data);
+                    })
+                    .catch(error => alert('catched' + error))
+            }
+
+        }
+
+        function validation(input) {
+            if (input === '') {
+                alert('no valid input');
+                return false;
+            }
+
+            return true
+        }
+
+        getUserBtn.addEventListener('click', (e) => {
+            getUser(userNameInput.value);
+        });
+
+    </script>
+</body>
+
+</html>
