@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies API</title>
+
+    <style>
+        #tools {
+            text-align: center;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        #cards {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            margin: 1%;
+            border: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="tools">
+            <input type="text" id="userNameInput">
+            <button> Get Movie</button>
+        </div>
+
+        <div id="cards"></div>
+    </div>
+
+    <script>
+        let cardsDisplay = document.getElementById('cards');
+        let userNameInput = document.getElementById('userNameInput');
+        let getUserBtn = document.getElementsByTagName('button')[0];
+
+        function cardBuilder(data) {
+            userNameInput.innerHTML = '';
+            userNameInput.value = '';
+            cardsDisplay.innerHTML = '';
+            let ratingArray = [];
+
+
+            let card = document.createElement('div');
+            let imageLink = document.createElement('a');
+            let image = document.createElement('img');
+            let title = document.createElement('h4');
+            let ganer = document.createElement('p');
+            let year = document.createElement('p');
+            let plot = document.createElement('p');
+            let director = document.createElement('p');
+            let actors = document.createElement('p');
+
+
+            for (let i = 0; i < data.Ratings.length; i++) {
+
+                let ratingItem = document.createElement('p');
+                ratingItem.innerHTML = data.Ratings[i].Source + ' ' + data.Ratings[i].Value + '<br>';
+                ratingArray.push(ratingItem);
+
+            }
+
+            card.classList.add('card');
+            image.setAttribute('src', data.Poster); /// need fuc 
+
+            imageLink.setAttribute('target', '_blank')
+            title.innerHTML = data.Title;
+            ganer.innerText = data.Genre;
+            year.innerText = data.Year;
+            plot.innerHTML = data.Plot;
+            director.innerHTML = data.Director;
+            actors.innerHTML = data.Actors;
+
+            imageLink.appendChild(image);
+            card.append(imageLink, title, ganer, year, plot, director, actors);
+
+            for (let i = 0; i < ratingArray.length; i++) {
+                card.appendChild(ratingArray[i]);
+            }
+            cardsDisplay.appendChild(card);
+        }
+
+        function getUser(input) {
+
+            let baseUrl = 'https://www.omdbapi.com/?t=';
+            let apiKey = 'here you api key';
+            if (validation(input)) {
+
+                fetch(baseUrl + input + apiKey)
+                    .then((res) => {
+
+                        if (!res.ok) {
+                            throw new Error(`HTTP error: ${res.status}`);
+                        }
+                        return res.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        cardBuilder(data);
+                    })
+                    .catch(error => alert('catched' + error))
+            }
+        }
+
+        function validation(input) {
+            if (input === '') {
+                alert('no valid input');
+                return false;
+            }
+
+            return true
+        }
+
+        getUserBtn.addEventListener('click', (e) => {
+            getUser(userNameInput.value);
+        });
+
+    </script>
+</body>
+
+</html>
