@@ -1,0 +1,44 @@
+.box1{
+    background-color: greenyellow;
+    width: 100%;
+    height: 600px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box2{
+    background-color: blue;
+    width: 80%;
+    height: 80% ;
+    
+    z-index: 1;
+  }
+  
+  .box3{
+    
+    background-color: pink;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    height: 20rem ;
+    
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .box4{
+    
+    background-color: purple;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 7rem ;
+  
+    z-index: 3;
+  
+  }
+  
