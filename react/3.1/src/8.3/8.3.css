@@ -1,44 +1,17 @@
 
 
+
+
+
 .box{
-
-   
-    animation: move 6s  infinite ease-in-out;
-}
-
-#box1{
     width: 100px;
     height: 100px;
-    background: red;
-    position: relative;
-    display: none;
-
-
+    background-color: red;
 }
 
-#box2{
+.circle{
     width: 100px;
     height: 100px;
-    background: blue;
-    position: absolute;
-    right: 50px;
-    display: none;
-
+    background-color: red;
+    border-radius: 50%;
 }
-
-#box3{
-    width: 100px;
-    height: 100px;
-    background: green;
-    position: absolute;
-    left: 150px;
-
-    display: none;
-
-}
-
-
-@keyframes move {
-    from {top: 0px;}
-    to {top: 200px;}
-  }
