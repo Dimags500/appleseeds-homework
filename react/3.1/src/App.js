@@ -9,6 +9,7 @@ import Incriment from "./7.1/incriment";
 import Btn from "./7.2/btn";
 import PlusMinus from "./7.3/PlusNimus";
 import Life from "./8.1/Life";
+import BoxesApp from "./8.2/BoxesApp";
 
 function App() {
   const btn1 = {
@@ -74,8 +75,9 @@ function App() {
       {/* <PlusMinus /> */}
 
       {/* 8.1 */}
-
-      <Life />
+      {/* <Life /> */}
+      {/* 8.2 */}
+      <BoxesApp />
     </div>
   );
 }
