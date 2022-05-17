@@ -8,6 +8,7 @@ import FuncCards from "./6.1/FuncCards";
 import Incriment from "./7.1/incriment";
 import Btn from "./7.2/btn";
 import PlusMinus from "./7.3/PlusNimus";
+import Life from "./8.1/Life";
 
 function App() {
   const btn1 = {
@@ -70,7 +71,11 @@ function App() {
 
       {/* 7.3 */}
 
-      <PlusMinus />
+      {/* <PlusMinus /> */}
+
+      {/* 8.1 */}
+
+      <Life />
     </div>
   );
 }

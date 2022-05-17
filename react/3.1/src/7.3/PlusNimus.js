@@ -12,7 +12,7 @@ class PlusMinus extends React.Component {
   }
 
   incriment = () => {
-    if (this.state.value == 0) {
+    if (this.state.value === 0) {
       this.setState({ color: "white" });
     }
     if (this.state.value >= 10) {
@@ -26,7 +26,7 @@ class PlusMinus extends React.Component {
   };
 
   dicrement = () => {
-    if (this.state.value == 0) {
+    if (this.state.value === 0) {
       this.setState({ color: "white" });
     }
     if (this.state.value < -10) {
