@@ -11,6 +11,7 @@ import PlusMinus from "./7.3/PlusNimus";
 import Life from "./8.1/Life";
 import BoxesApp from "./8.2/BoxesApp";
 import BoxesApp2 from "./8.3/BoxesApp2";
+import Parent from "./9.1/Parent";
 
 function App() {
   const btn1 = {
@@ -80,7 +81,10 @@ function App() {
       {/* 8.2 */}
       {/* <BoxesApp /> */}
       {/* 8.3 */}
-      <BoxesApp2 />
+      {/* <BoxesApp2 /> */}
+      {/* 9.1 */}
+
+      <Parent />
     </div>
   );
 }
