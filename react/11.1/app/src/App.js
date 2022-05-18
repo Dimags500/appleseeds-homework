@@ -4,10 +4,16 @@ import React from "react";
 import Button from "./components/Button";
 
 class App extends React.Component {
-  colors = ["blue", "red", "yellow"];
-  callFromChild(color) {
-    console.log(color);
+  constructor() {
+    super();
+    this.state = { color: "" };
   }
+  colors = ["blue", "red", "yellow"];
+  callFromChild = (color) => {
+    this.setState(() => {
+      return { color: color };
+    });
+  };
 
   generateBtns() {
     const arr = [];
@@ -26,7 +32,12 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>{this.generateBtns()}</div>;
+    return (
+      <div>
+        {this.generateBtns()}
+        {`state in parent ${this.state.color}`}
+      </div>
+    );
   }
 }
 
