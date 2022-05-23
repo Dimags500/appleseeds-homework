@@ -13,8 +13,10 @@ class SearchBar extends React.Component {
       return { term: e.target.value };
     });
 
-    this.props.callback(this.state.term);
+    this.props.callback(e.target.value);
   }
+
+  componentDidMount() {}
 
   render() {
     return (
