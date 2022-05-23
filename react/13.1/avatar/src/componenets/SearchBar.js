@@ -5,15 +5,11 @@ class SearchBar extends React.Component {
   constructor() {
     super();
 
-    this.state = { term: [] };
+    this.searchRef = React.createRef();
   }
 
   serchCallback(e) {
-    this.setState(() => {
-      return { term: e.target.value };
-    });
-
-    this.props.callback(e.target.value);
+    this.props.callback(this.searchRef.current.value);
   }
 
   componentDidMount() {}
@@ -21,7 +17,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <input onChange={(e) => this.serchCallback(e)} />
+        <input onChange={(e) => this.serchCallback(e)} ref={this.searchRef} />
       </div>
     );
   }
