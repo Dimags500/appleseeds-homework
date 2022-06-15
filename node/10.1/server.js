@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 app.get("/numbers", (req, res) => {
   console.log(req.query);
@@ -16,7 +17,8 @@ app.put("/numbers/:id", (req, res) => {
   res.end(`success using  ${req.method}`);
 });
 
-app.post("/numbers/:id", (req, res) => {
+app.post("/numbers", (req, res) => {
+  console.log(req.body);
   res.end(`success using  ${req.method}`);
 });
 
