@@ -9,6 +9,13 @@ app.get("/numbers", (req, res) => {
   res.end();
 });
 
+const notExist = (number) => {
+  if (!array.includes(number)) {
+    res.status(400);
+    res.send("number not fund ");
+  }
+};
+
 app.get("/numbers/:id", (req, res) => {
   const { id } = req.params;
   const index = array.indexOf(parseInt(id));
@@ -23,13 +30,16 @@ app.get("/numbers/:id", (req, res) => {
 
 app.post("/numbers", (req, res) => {
   const { number } = req.body;
-  console.log(number);
+  let num = JSON.parse(number);
 
-  if (number !== undefined) {
-    array.push(JSON.parse(number));
+  const exist = array.includes(num);
+  if (number !== undefined && !exist) {
+    array.push(num);
+    res.end(`success using  ${req.method}`);
+  } else {
+    res.status(400);
+    res.send("number exist");
   }
-  console.log("after :" + array);
-  res.end(`success using  ${req.method}`);
 });
 
 app.put("/numbers/:id", (req, res) => {
@@ -39,7 +49,8 @@ app.put("/numbers/:id", (req, res) => {
   if (index > -1) {
     array[index] = number;
   } else {
-    res.end("fail");
+    res.status(400);
+    res.send("number not fund ");
   }
 
   res.write(JSON.stringify(array));
@@ -54,7 +65,8 @@ app.delete("/numbers/:id", (req, res) => {
   if (index > -1) {
     array = array.filter((item) => item !== id);
   } else {
-    res.end("fail");
+    res.status(400);
+    res.send("number not fund ");
   }
   res.end(`success deleted  ${array}`);
 });
